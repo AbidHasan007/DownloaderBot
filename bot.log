@@ -1,485 +1,0 @@
-2025-07-08 09:33:34,094 - apscheduler.scheduler - INFO - Scheduler started
-2025-07-08 09:33:34,094 - telegram.ext.Application - INFO - Application started
-2025-07-08 09:34:04,314 - __main__ - INFO - Received message text: https://youtu.be/AngYa5nU92U?si=74EsYEtfRG6D0lm2
-2025-07-08 09:34:04,315 - __main__ - INFO - Detected URL: https://youtu.be/AngYa5nU92U?si=74EsYEtfRG6D0lm2
-2025-07-08 09:34:05,103 - __main__ - INFO - yt-dlp attempting to extract info for URL: https://youtu.be/AngYa5nU92U?si=74EsYEtfRG6D0lm2
-2025-07-08 09:34:30,344 - __main__ - INFO - yt-dlp prepared filename: downloads/f443f38e-ed4a-4eb3-9408-595978b688b6_AngYa5nU92U.webm
-2025-07-08 09:34:53,667 - __main__ - INFO - FFmpeg stdout: 
-2025-07-08 09:34:53,667 - __main__ - INFO - FFmpeg stderr: ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
-  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
-  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
-  libavutil      56. 70.100 / 56. 70.100
-  libavcodec     58.134.100 / 58.134.100
-  libavformat    58. 76.100 / 58. 76.100
-  libavdevice    58. 13.100 / 58. 13.100
-  libavfilter     7.110.100 /  7.110.100
-  libswscale      5.  9.100 /  5.  9.100
-  libswresample   3.  9.100 /  3.  9.100
-  libpostproc    55.  9.100 / 55.  9.100
-Input #0, matroska,webm, from 'downloads/f443f38e-ed4a-4eb3-9408-595978b688b6_AngYa5nU92U.webm':
-  Metadata:
-    COMPATIBLE_BRANDS: iso6mp41
-    MAJOR_BRAND     : dash
-    MINOR_VERSION   : 0
-    ENCODER         : Lavf58.76.100
-  Duration: 00:03:16.50, start: -0.007000, bitrate: 4034 kb/s
-  Stream #0:0: Video: vp9 (Profile 0), yuv420p(tv, bt709), 1920x1080, SAR 1:1 DAR 16:9, 25 fps, 25 tbr, 1k tbn, 1k tbc (default)
-    Metadata:
-      HANDLER_NAME    : ISO Media file produced by Google Inc. Created on: 07/07/2025.
-      VENDOR_ID       : [0][0][0][0]
-      DURATION        : 00:03:16.480000000
-  Stream #0:1(eng): Audio: opus, 48000 Hz, stereo, fltp (default)
-    Metadata:
-      DURATION        : 00:03:16.501000000
-Stream mapping:
-  Stream #0:0 -> #0:0 (vp9 (native) -> h264 (libx264))
-  Stream #0:1 -> #0:1 (opus (native) -> aac (native))
-Press [q] to stop, [?] for help
-[libx264 @ 0x57c3f7988840] using SAR=1/1
-[libx264 @ 0x57c3f7988840] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
-[libx264 @ 0x57c3f7988840] profile High, level 4.0, 4:2:0, 8-bit
-[libx264 @ 0x57c3f7988840] 264 - core 163 r3060 5db6aa6 - H.264/MPEG-4 AVC codec - Copyleft 2003-2021 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=24 lookahead_threads=4 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=28.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 vbv_maxrate=1000 vbv_bufsize=2000 crf_max=0.0 nal_hrd=none filler=0 ip_ratio=1.40 aq=1:1.00
-Output #0, mp4, to 'downloads/f443f38e-ed4a-4eb3-9408-595978b688b6_AngYa5nU92U_telegram.mp4':
-  Metadata:
-    COMPATIBLE_BRANDS: iso6mp41
-    MAJOR_BRAND     : dash
-    MINOR_VERSION   : 0
-    encoder         : Lavf58.76.100
-  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 25 fps, 12800 tbn (default)
-    Metadata:
-      HANDLER_NAME    : ISO Media file produced by Google Inc. Created on: 07/07/2025.
-      VENDOR_ID       : [0][0][0][0]
-      DURATION        : 00:03:16.480000000
-      encoder         : Lavc58.134.100 libx264
-    Side data:
-      cpb: bitrate max/min/avg: 1000000/0/0 buffer size: 2000000 vbv_delay: N/A
-  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 64 kb/s (default)
-    Metadata:
-      DURATION        : 00:03:16.501000000
-      encoder         : Lavc58.134.100 aac
-frame=    1 fps=0.0 q=0.0 size=       0kB time=00:00:00.45 bitrate=   0.8kbits/s speed=23.5x    frame=  108 fps=0.0 q=36.0 size=       0kB time=00:00:04.78 bitrate=   0.1kbits/s speed=9.19x    frame=  201 fps=196 q=38.0 size=     512kB time=00:00:08.49 bitrate= 493.6kbits/s speed=8.31x    frame=  291 fps=190 q=44.0 size=    1024kB time=00:00:12.10 bitrate= 693.1kbits/s speed= 7.9x    frame=  380 fps=187 q=45.0 size=    1536kB time=00:00:15.66 bitrate= 803.2kbits/s speed=7.71x    frame=  478 fps=188 q=44.0 size=    2048kB time=00:00:19.59 bitrate= 856.4kbits/s speed=7.72x    frame=  584 fps=192 q=38.0 size=    2304kB time=00:00:23.83 bitrate= 791.8kbits/s speed=7.84x    frame=  694 fps=196 q=34.0 size=    2816kB time=00:00:28.23 bitrate= 817.2kbits/s speed=7.97x    frame=  803 fps=199 q=35.0 size=    3328kB time=00:00:32.58 bitrate= 836.7kbits/s speed=8.06x    frame=  899 fps=198 q=38.0 size=    3840kB time=00:00:36.42 bitrate= 863.7kbits/s speed=   8x    frame=  990 fps=196 q=37.0 size=    4352kB time=00:00:40.11 bitrate= 888.8kbits/s speed=7.94x    frame= 1091 fps=196 q=34.0 size=    4864kB time=00:00:44.10 bitrate= 903.5kbits/s speed=7.94x    frame= 1224 fps=202 q=35.0 size=    5632kB time=00:00:49.43 bitrate= 933.3kbits/s speed=8.16x    frame= 1326 fps=202 q=34.0 size=    6144kB time=00:00:53.51 bitrate= 940.6kbits/s speed=8.16x    frame= 1428 fps=202 q=37.0 size=    6656kB time=00:00:57.60 bitrate= 946.5kbits/s speed=8.16x    frame= 1532 fps=202 q=36.0 size=    7168kB time=00:01:01.74 bitrate= 951.0kbits/s speed=8.16x    frame= 1629 fps=202 q=38.0 size=    7680kB time=00:01:05.62 bitrate= 958.7kbits/s speed=8.14x    frame= 1710 fps=199 q=45.0 size=    8192kB time=00:01:08.87 bitrate= 974.4kbits/s speed=8.03x    frame= 1796 fps=198 q=42.0 size=    8448kB time=00:01:12.26 bitrate= 957.7kbits/s speed=7.95x    frame= 1908 fps=199 q=38.0 size=    8960kB time=00:01:16.78 bitrate= 955.9kbits/s speed=   8x    frame= 2002 fps=198 q=39.0 size=    9472kB time=00:01:20.54 bitrate= 963.4kbits/s speed=7.97x    frame= 2090 fps=197 q=42.0 size=    9984kB time=00:01:24.06 bitrate= 973.0kbits/s speed=7.92x    frame= 2174 fps=196 q=38.0 size=   10240kB time=00:01:27.43 bitrate= 959.5kbits/s speed=7.87x    frame= 2266 fps=195 q=33.0 size=   10752kB time=00:01:31.07 bitrate= 967.1kbits/s speed=7.84x    frame= 2381 fps=197 q=33.0 size=   11264kB time=00:01:35.70 bitrate= 964.1kbits/s speed= 7.9x    frame= 2490 fps=197 q=34.0 size=   12032kB time=00:01:40.01 bitrate= 985.5kbits/s speed=7.92x    frame= 2599 fps=198 q=33.0 size=   12288kB time=00:01:44.39 bitrate= 964.3kbits/s speed=7.96x    frame= 2715 fps=199 q=33.0 size=   12800kB time=00:01:49.08 bitrate= 961.3kbits/s speed=8.01x    frame= 2822 fps=200 q=33.0 size=   13312kB time=00:01:53.35 bitrate= 962.1kbits/s speed=8.02x    frame= 2942 fps=201 q=33.0 size=   13824kB time=00:01:58.15 bitrate= 958.5kbits/s speed=8.08x    frame= 3042 fps=201 q=36.0 size=   14336kB time=00:02:02.14 bitrate= 961.5kbits/s speed=8.07x    frame= 3149 fps=201 q=39.0 size=   14848kB time=00:02:06.42 bitrate= 962.1kbits/s speed=8.09x    frame= 3261 fps=202 q=35.0 size=   15616kB time=00:02:10.90 bitrate= 977.2kbits/s speed=8.11x    frame= 3358 fps=202 q=36.0 size=   15872kB time=00:02:14.74 bitrate= 964.9kbits/s speed= 8.1x    frame= 3493 fps=204 q=33.0 size=   16384kB time=00:02:20.18 bitrate= 957.4kbits/s speed=8.18x    frame= 3620 fps=205 q=34.0 size=   16896kB time=00:02:25.26 bitrate= 952.8kbits/s speed=8.23x    frame= 3746 fps=206 q=33.0 size=   17408kB time=00:02:30.30 bitrate= 948.8kbits/s speed=8.28x    frame= 3875 fps=208 q=34.0 size=   17920kB time=00:02:35.46 bitrate= 944.3kbits/s speed=8.34x    frame= 3996 fps=209 q=38.0 size=   18432kB time=00:02:40.32 bitrate= 941.8kbits/s speed=8.37x    frame= 4111 fps=209 q=35.0 size=   18944kB time=00:02:44.91 bitrate= 941.0kbits/s speed=8.39x    frame= 4206 fps=209 q=41.0 size=   19456kB time=00:02:48.75 bitrate= 944.5kbits/s speed=8.37x    frame= 4319 fps=209 q=33.0 size=   19968kB time=00:02:53.19 bitrate= 944.5kbits/s speed=8.38x    frame= 4441 fps=210 q=33.0 size=   20736kB time=00:02:58.09 bitrate= 953.8kbits/s speed=8.41x    frame= 4553 fps=210 q=34.0 size=   21248kB time=00:03:02.55 bitrate= 953.5kbits/s speed=8.42x    frame= 4671 fps=211 q=34.0 size=   21760kB time=00:03:07.31 bitrate= 951.7kbits/s speed=8.45x    frame= 4785 fps=211 q=35.0 size=   22528kB time=00:03:11.85 bitrate= 961.9kbits/s speed=8.46x    [mp4 @ 0x57c3f795f040] Starting second pass: moving the moov atom to the beginning of the file
-frame= 4912 fps=212 q=-1.0 Lsize=   23080kB time=00:03:16.48 bitrate= 962.2kbits/s speed=8.46x    
-video:21427kB audio:1507kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.636578%
-[libx264 @ 0x57c3f7988840] frame I:51    Avg QP:28.98  size: 76389
-[libx264 @ 0x57c3f7988840] frame P:1466  Avg QP:32.06  size:  8621
-[libx264 @ 0x57c3f7988840] frame B:3395  Avg QP:35.47  size:  1592
-[libx264 @ 0x57c3f7988840] consecutive B-frames:  6.1%  3.8%  4.3% 85.7%
-[libx264 @ 0x57c3f7988840] mb I  I16..4: 13.3% 74.4% 12.3%
-[libx264 @ 0x57c3f7988840] mb P  I16..4:  1.8%  3.8%  0.1%  P16..4: 25.3%  3.2%  1.5%  0.0%  0.0%    skip:64.3%
-[libx264 @ 0x57c3f7988840] mb B  I16..4:  0.5%  0.5%  0.0%  B16..8:  8.5%  0.5%  0.0%  direct: 1.5%  skip:88.6%  L0:41.2% L1:56.8% BI: 2.0%
-[libx264 @ 0x57c3f7988840] 8x8 transform intra:65.9% inter:87.8%
-[libx264 @ 0x57c3f7988840] coded y,uvDC,uvAC intra: 31.9% 28.1% 3.8% inter: 2.6% 1.8% 0.0%
-[libx264 @ 0x57c3f7988840] i16 v,h,dc,p: 33% 34% 11% 22%
-[libx264 @ 0x57c3f7988840] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 22% 16% 34%  4%  5%  5%  6%  4%  6%
-[libx264 @ 0x57c3f7988840] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 22% 20% 12%  7% 10%  8%  9%  6%  7%
-[libx264 @ 0x57c3f7988840] i8c dc,h,v,p: 75% 13% 10%  2%
-[libx264 @ 0x57c3f7988840] Weighted P-Frames: Y:2.9% UV:1.6%
-[libx264 @ 0x57c3f7988840] ref P L0: 71.5% 28.5%
-[libx264 @ 0x57c3f7988840] ref B L0: 85.4% 14.6%
-[libx264 @ 0x57c3f7988840] ref B L1: 95.3%  4.7%
-[libx264 @ 0x57c3f7988840] kb/s:893.34
-[aac @ 0x57c3f798a680] Qavg: 1940.497
-
-2025-07-08 09:34:53,668 - __main__ - INFO - File: downloads/f443f38e-ed4a-4eb3-9408-595978b688b6_AngYa5nU92U_telegram.mp4, Size: 23633657 bytes (22.54 MB)
-2025-07-08 09:34:53,668 - __main__ - INFO - Checking file size: 22.54 MB vs limit 2000 MB and local save limit 50 MB
-2025-07-08 09:34:53,668 - __main__ - INFO - Generated file_id: 04a6947a-102c-4441-8f34-6d36288ea62c
-2025-07-08 09:34:53,668 - __main__ - INFO - Storing reencoded_filepath in bot_data: downloads/f443f38e-ed4a-4eb3-9408-595978b688b6_AngYa5nU92U_telegram.mp4
-2025-07-08 09:34:53,668 - __main__ - INFO - Attempting to send document: downloads/f443f38e-ed4a-4eb3-9408-595978b688b6_AngYa5nU92U_telegram.mp4
-2025-07-08 09:34:53,668 - __main__ - INFO - Filename for upload: f443f38e-ed4a-4eb3-9408-595978b688b6_AngYa5nU92U_telegram.mp4
-2025-07-08 09:34:58,852 - __main__ - INFO - Document sent successfully with unique filename: f443f38e-ed4a-4eb3-9408-595978b688b6_AngYa5nU92U_telegram.mp4?v=438ec1e1-9d25-4d9a-afb3-02cedad5cec3
-2025-07-08 09:35:42,806 - __main__ - INFO - Received message text: https://x.com/urdujournosaeed/status/1942091159876276335?t=V-quY1lxso-3L7vZJlsNNg&s=09
-2025-07-08 09:35:42,806 - __main__ - INFO - Detected URL: https://x.com/urdujournosaeed/status/1942091159876276335?t=V-quY1lxso-3L7vZJlsNNg&s=09
-2025-07-08 09:35:43,617 - __main__ - INFO - yt-dlp attempting to extract info for URL: https://x.com/urdujournosaeed/status/1942091159876276335?t=V-quY1lxso-3L7vZJlsNNg&s=09
-2025-07-08 09:35:53,623 - __main__ - INFO - yt-dlp prepared filename: downloads/33fb606c-6442-4547-b026-bfa742b2e86a_1942091099536855042.mp4
-2025-07-08 09:35:55,163 - __main__ - INFO - FFmpeg stdout: 
-2025-07-08 09:35:55,163 - __main__ - INFO - FFmpeg stderr: ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
-  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
-  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
-  libavutil      56. 70.100 / 56. 70.100
-  libavcodec     58.134.100 / 58.134.100
-  libavformat    58. 76.100 / 58. 76.100
-  libavdevice    58. 13.100 / 58. 13.100
-  libavfilter     7.110.100 /  7.110.100
-  libswscale      5.  9.100 /  5.  9.100
-  libswresample   3.  9.100 /  3.  9.100
-  libpostproc    55.  9.100 / 55.  9.100
-Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'downloads/33fb606c-6442-4547-b026-bfa742b2e86a_1942091099536855042.mp4':
-  Metadata:
-    major_brand     : isom
-    minor_version   : 512
-    compatible_brands: isomiso2avc1mp41
-    encoder         : Lavf58.76.100
-  Duration: 00:00:15.72, start: 0.000000, bitrate: 2269 kb/s
-  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 720x1280, 2135 kb/s, SAR 1:1 DAR 9:16, 30.07 fps, 30 tbr, 9000k tbn, 1800k tbc (default)
-    Metadata:
-      handler_name    : Twitter-vork muxer
-      vendor_id       : [0][0][0][0]
-  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)
-    Metadata:
-      handler_name    : Twitter-vork muxer
-      vendor_id       : [0][0][0][0]
-Stream mapping:
-  Stream #0:0 -> #0:0 (h264 (native) -> h264 (libx264))
-  Stream #0:1 -> #0:1 (aac (native) -> aac (native))
-Press [q] to stop, [?] for help
-[libx264 @ 0x6543395e7400] using SAR=1/1
-[libx264 @ 0x6543395e7400] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
-[libx264 @ 0x6543395e7400] profile High, level 3.1, 4:2:0, 8-bit
-[libx264 @ 0x6543395e7400] 264 - core 163 r3060 5db6aa6 - H.264/MPEG-4 AVC codec - Copyleft 2003-2021 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=24 lookahead_threads=4 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=28.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 vbv_maxrate=1000 vbv_bufsize=2000 crf_max=0.0 nal_hrd=none filler=0 ip_ratio=1.40 aq=1:1.00
-Output #0, mp4, to 'downloads/33fb606c-6442-4547-b026-bfa742b2e86a_1942091099536855042_telegram.mp4':
-  Metadata:
-    major_brand     : isom
-    minor_version   : 512
-    compatible_brands: isomiso2avc1mp41
-    encoder         : Lavf58.76.100
-  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(progressive), 720x1280 [SAR 1:1 DAR 9:16], q=2-31, 30 fps, 15360 tbn (default)
-    Metadata:
-      handler_name    : Twitter-vork muxer
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc58.134.100 libx264
-    Side data:
-      cpb: bitrate max/min/avg: 1000000/0/0 buffer size: 2000000 vbv_delay: N/A
-  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 64 kb/s (default)
-    Metadata:
-      handler_name    : Twitter-vork muxer
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc58.134.100 aac
-frame=    1 fps=0.0 q=0.0 size=       0kB time=00:00:00.46 bitrate=   0.8kbits/s speed=22.6x    frame=  175 fps=0.0 q=42.0 size=     512kB time=00:00:06.29 bitrate= 666.6kbits/s speed=11.9x    frame=  345 fps=335 q=41.0 size=    1280kB time=00:00:11.95 bitrate= 876.9kbits/s speed=11.6x    [mp4 @ 0x6543395e8880] Starting second pass: moving the moov atom to the beginning of the file
-frame=  471 fps=322 q=-1.0 Lsize=    2099kB time=00:00:15.69 bitrate=1095.3kbits/s speed=10.7x    
-video:1958kB audio:123kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.857841%
-[libx264 @ 0x6543395e7400] frame I:3     Avg QP:35.99  size: 15982
-[libx264 @ 0x6543395e7400] frame P:178   Avg QP:39.97  size:  5480
-[libx264 @ 0x6543395e7400] frame B:290   Avg QP:42.21  size:  3381
-[libx264 @ 0x6543395e7400] consecutive B-frames:  7.2% 29.7%  7.0% 56.1%
-[libx264 @ 0x6543395e7400] mb I  I16..4: 17.9% 75.9%  6.2%
-[libx264 @ 0x6543395e7400] mb P  I16..4: 11.5% 22.9%  0.3%  P16..4: 26.0%  2.4%  0.5%  0.0%  0.0%    skip:36.5%
-[libx264 @ 0x6543395e7400] mb B  I16..4:  7.1% 10.1%  0.0%  B16..8: 23.3%  1.9%  0.0%  direct: 5.5%  skip:52.0%  L0:47.3% L1:51.3% BI: 1.4%
-[libx264 @ 0x6543395e7400] 8x8 transform intra:63.1% inter:93.8%
-[libx264 @ 0x6543395e7400] coded y,uvDC,uvAC intra: 15.0% 13.0% 0.5% inter: 4.2% 2.2% 0.0%
-[libx264 @ 0x6543395e7400] i16 v,h,dc,p: 42% 29% 17% 12%
-[libx264 @ 0x6543395e7400] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 18% 13% 51%  2%  4%  3%  4%  2%  3%
-[libx264 @ 0x6543395e7400] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 28% 25% 23%  3%  5%  5%  6%  3%  3%
-[libx264 @ 0x6543395e7400] i8c dc,h,v,p: 93%  3%  4%  0%
-[libx264 @ 0x6543395e7400] Weighted P-Frames: Y:2.2% UV:0.0%
-[libx264 @ 0x6543395e7400] ref P L0: 73.1% 26.9%
-[libx264 @ 0x6543395e7400] ref B L0: 80.2% 19.8%
-[libx264 @ 0x6543395e7400] ref B L1: 94.4%  5.6%
-[libx264 @ 0x6543395e7400] kb/s:1021.01
-[aac @ 0x65433963ad80] Qavg: 1110.652
-
-2025-07-08 09:35:55,163 - __main__ - INFO - File: downloads/33fb606c-6442-4547-b026-bfa742b2e86a_1942091099536855042_telegram.mp4, Size: 2148975 bytes (2.05 MB)
-2025-07-08 09:35:55,163 - __main__ - INFO - Checking file size: 2.05 MB vs limit 2000 MB and local save limit 50 MB
-2025-07-08 09:35:55,163 - __main__ - INFO - Generated file_id: 1cf06c69-413e-4d27-b348-ba698b0a0e87
-2025-07-08 09:35:55,163 - __main__ - INFO - Storing reencoded_filepath in bot_data: downloads/33fb606c-6442-4547-b026-bfa742b2e86a_1942091099536855042_telegram.mp4
-2025-07-08 09:35:55,163 - __main__ - INFO - Attempting to send document: downloads/33fb606c-6442-4547-b026-bfa742b2e86a_1942091099536855042_telegram.mp4
-2025-07-08 09:35:55,163 - __main__ - INFO - Filename for upload: 33fb606c-6442-4547-b026-bfa742b2e86a_1942091099536855042_telegram.mp4
-2025-07-08 09:35:57,776 - __main__ - INFO - Document sent successfully with unique filename: 33fb606c-6442-4547-b026-bfa742b2e86a_1942091099536855042_telegram.mp4?v=2065043b-b06f-4332-b6cc-b7a04301b91b
-2025-07-08 09:36:24,836 - __main__ - INFO - Received message text: https://youtube.com/shorts/KkJoU045w7A?si=a8-KSKLLywkOwMX7
-2025-07-08 09:36:24,836 - __main__ - INFO - Detected URL: https://youtube.com/shorts/KkJoU045w7A?si=a8-KSKLLywkOwMX7
-2025-07-08 09:36:25,681 - __main__ - INFO - yt-dlp attempting to extract info for URL: https://youtube.com/shorts/KkJoU045w7A?si=a8-KSKLLywkOwMX7
-2025-07-08 09:36:37,781 - __main__ - INFO - yt-dlp prepared filename: downloads/aeff7c00-d108-481f-8b52-40fb0ab80629_KkJoU045w7A.webm
-2025-07-08 09:36:40,044 - __main__ - INFO - FFmpeg stdout: 
-2025-07-08 09:36:40,044 - __main__ - INFO - FFmpeg stderr: ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
-  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
-  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
-  libavutil      56. 70.100 / 56. 70.100
-  libavcodec     58.134.100 / 58.134.100
-  libavformat    58. 76.100 / 58. 76.100
-  libavdevice    58. 13.100 / 58. 13.100
-  libavfilter     7.110.100 /  7.110.100
-  libswscale      5.  9.100 /  5.  9.100
-  libswresample   3.  9.100 /  3.  9.100
-  libpostproc    55.  9.100 / 55.  9.100
-[libdav1d @ 0x5915658c4800] libdav1d 0.9.2
-Input #0, matroska,webm, from 'downloads/aeff7c00-d108-481f-8b52-40fb0ab80629_KkJoU045w7A.webm':
-  Metadata:
-    COMPATIBLE_BRANDS: iso6av01mp41
-    MAJOR_BRAND     : dash
-    MINOR_VERSION   : 0
-    ENCODER         : Lavf58.76.100
-  Duration: 00:00:08.50, start: -0.007000, bitrate: 1919 kb/s
-  Stream #0:0: Video: av1 (Main), yuv420p(tv, bt709), 1080x1920 [SAR 1:1 DAR 9:16], 50 fps, 50 tbr, 1k tbn, 1k tbc (default)
-    Metadata:
-      HANDLER_NAME    : ISO Media file produced by Google Inc.
-      VENDOR_ID       : [0][0][0][0]
-      DURATION        : 00:00:08.480000000
-  Stream #0:1(eng): Audio: opus, 48000 Hz, stereo, fltp (default)
-    Metadata:
-      DURATION        : 00:00:08.501000000
-[libdav1d @ 0x5915658c8280] libdav1d 0.9.2
-Stream mapping:
-  Stream #0:0 -> #0:0 (av1 (libdav1d) -> h264 (libx264))
-  Stream #0:1 -> #0:1 (opus (native) -> aac (native))
-Press [q] to stop, [?] for help
-[libx264 @ 0x591565905f00] using SAR=1/1
-[libx264 @ 0x591565905f00] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
-[libx264 @ 0x591565905f00] profile High, level 4.2, 4:2:0, 8-bit
-[libx264 @ 0x591565905f00] 264 - core 163 r3060 5db6aa6 - H.264/MPEG-4 AVC codec - Copyleft 2003-2021 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=24 lookahead_threads=4 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=28.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 vbv_maxrate=1000 vbv_bufsize=2000 crf_max=0.0 nal_hrd=none filler=0 ip_ratio=1.40 aq=1:1.00
-Output #0, mp4, to 'downloads/aeff7c00-d108-481f-8b52-40fb0ab80629_KkJoU045w7A_telegram.mp4':
-  Metadata:
-    COMPATIBLE_BRANDS: iso6av01mp41
-    MAJOR_BRAND     : dash
-    MINOR_VERSION   : 0
-    encoder         : Lavf58.76.100
-  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1080x1920 [SAR 1:1 DAR 9:16], q=2-31, 50 fps, 12800 tbn (default)
-    Metadata:
-      HANDLER_NAME    : ISO Media file produced by Google Inc.
-      VENDOR_ID       : [0][0][0][0]
-      DURATION        : 00:00:08.480000000
-      encoder         : Lavc58.134.100 libx264
-    Side data:
-      cpb: bitrate max/min/avg: 1000000/0/0 buffer size: 2000000 vbv_delay: N/A
-  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 64 kb/s (default)
-    Metadata:
-      DURATION        : 00:00:08.501000000
-      encoder         : Lavc58.134.100 aac
-frame=    1 fps=0.0 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    frame=   82 fps=0.0 q=52.0 size=       0kB time=00:00:01.67 bitrate=   0.2kbits/s speed=3.28x    frame=  169 fps=167 q=55.0 size=     256kB time=00:00:03.37 bitrate= 621.0kbits/s speed=3.34x    frame=  258 fps=171 q=48.0 size=     512kB time=00:00:05.19 bitrate= 808.1kbits/s speed=3.43x    frame=  397 fps=197 q=36.0 size=     768kB time=00:00:07.94 bitrate= 792.1kbits/s speed=3.94x    [mp4 @ 0x591565904540] Starting second pass: moving the moov atom to the beginning of the file
-frame=  424 fps=195 q=-1.0 Lsize=     864kB time=00:00:08.47 bitrate= 834.6kbits/s speed= 3.9x    
-video:785kB audio:67kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.370910%
-[libx264 @ 0x591565905f00] frame I:2     Avg QP:34.20  size: 20916
-[libx264 @ 0x591565905f00] frame P:119   Avg QP:38.30  size:  3435
-[libx264 @ 0x591565905f00] frame B:303   Avg QP:39.46  size:  1163
-[libx264 @ 0x591565905f00] consecutive B-frames:  0.9% 10.4%  2.8% 85.8%
-[libx264 @ 0x591565905f00] mb I  I16..4: 43.2% 53.9%  3.0%
-[libx264 @ 0x591565905f00] mb P  I16..4:  6.5%  8.2%  0.0%  P16..4:  9.4%  0.6%  0.3%  0.0%  0.0%    skip:74.8%
-[libx264 @ 0x591565905f00] mb B  I16..4:  0.9%  0.5%  0.0%  B16..8:  7.8%  0.2%  0.0%  direct: 0.8%  skip:89.8%  L0:43.9% L1:55.7% BI: 0.5%
-[libx264 @ 0x591565905f00] 8x8 transform intra:51.9% inter:97.0%
-[libx264 @ 0x591565905f00] coded y,uvDC,uvAC intra: 5.7% 17.1% 0.2% inter: 0.4% 0.8% 0.0%
-[libx264 @ 0x591565905f00] i16 v,h,dc,p: 47% 31%  7% 14%
-[libx264 @ 0x591565905f00] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 16%  7% 70%  1%  1%  1%  1%  1%  1%
-[libx264 @ 0x591565905f00] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 34% 22% 15%  5%  6%  5%  6%  4%  4%
-[libx264 @ 0x591565905f00] i8c dc,h,v,p: 90%  6%  4%  0%
-[libx264 @ 0x591565905f00] Weighted P-Frames: Y:0.0% UV:0.0%
-[libx264 @ 0x591565905f00] ref P L0: 72.4% 27.6%
-[libx264 @ 0x591565905f00] ref B L0: 84.7% 15.3%
-[libx264 @ 0x591565905f00] ref B L1: 96.6%  3.4%
-[libx264 @ 0x591565905f00] kb/s:757.47
-[aac @ 0x591565906c00] Qavg: 138.002
-
-2025-07-08 09:36:40,044 - __main__ - INFO - File: downloads/aeff7c00-d108-481f-8b52-40fb0ab80629_KkJoU045w7A_telegram.mp4, Size: 884299 bytes (0.84 MB)
-2025-07-08 09:36:40,044 - __main__ - INFO - Checking file size: 0.84 MB vs limit 2000 MB and local save limit 50 MB
-2025-07-08 09:36:40,044 - __main__ - INFO - Generated file_id: b0551000-8294-40fd-8ccd-751a05d9708d
-2025-07-08 09:36:40,044 - __main__ - INFO - Storing reencoded_filepath in bot_data: downloads/aeff7c00-d108-481f-8b52-40fb0ab80629_KkJoU045w7A_telegram.mp4
-2025-07-08 09:36:40,045 - __main__ - INFO - Attempting to send document: downloads/aeff7c00-d108-481f-8b52-40fb0ab80629_KkJoU045w7A_telegram.mp4
-2025-07-08 09:36:40,045 - __main__ - INFO - Filename for upload: aeff7c00-d108-481f-8b52-40fb0ab80629_KkJoU045w7A_telegram.mp4
-2025-07-08 09:36:42,753 - __main__ - INFO - Document sent successfully with unique filename: aeff7c00-d108-481f-8b52-40fb0ab80629_KkJoU045w7A_telegram.mp4?v=4df79be6-a6fe-4c50-8ea6-6067128a0734
-2025-07-08 09:38:24,033 - __main__ - INFO - Received message text: https://xhwide5.com/videos/great-cumshots-113-4895447?_gl=1%2Ai3fqr8%2A_ga%2AcGxUank2TTBpaFZONjctcmFjRUthZVI5SUdQOUsxTnYwWXU4b1h3RkVqSHZQLXBBT1kybVJMY1ZFMng3dDVrdg..%2A_ga_M59JX8S6QE%2AMTc1MTk0NTg3MS4xLjEuMTc1MTk0NTg3MS4wLjAuMA..
-2025-07-08 09:38:24,033 - __main__ - INFO - Detected URL: https://xhwide5.com/videos/great-cumshots-113-4895447?_gl=1%2Ai3fqr8%2A_ga%2AcGxUank2TTBpaFZONjctcmFjRUthZVI5SUdQOUsxTnYwWXU4b1h3RkVqSHZQLXBBT1kybVJMY1ZFMng3dDVrdg..%2A_ga_M59JX8S6QE%2AMTc1MTk0NTg3MS4xLjEuMTc1MTk0NTg3MS4wLjAuMA..
-2025-07-08 09:38:24,813 - __main__ - INFO - yt-dlp attempting to extract info for URL: https://xhwide5.com/videos/great-cumshots-113-4895447?_gl=1%2Ai3fqr8%2A_ga%2AcGxUank2TTBpaFZONjctcmFjRUthZVI5SUdQOUsxTnYwWXU4b1h3RkVqSHZQLXBBT1kybVJMY1ZFMng3dDVrdg..%2A_ga_M59JX8S6QE%2AMTc1MTk0NTg3MS4xLjEuMTc1MTk0NTg3MS4wLjAuMA..
-2025-07-08 09:38:25,892 - __main__ - WARNING - [generic] Falling back on generic information extractor
-2025-07-08 09:39:02,118 - __main__ - INFO - yt-dlp prepared filename: downloads/f1585393-2312-48cf-8fe7-a3c62596cd68_great-cumshots-113-4895447_gl=1_i3fqr8__ga_cGxUank2TTBpaFZONjctcmFjRUthZVI5SUdQOUsxTnYwWXU4b1h3RkVqSHZQLXBBT1kybVJMY1ZFMng3dDVrdg..__ga_M59JX8S6QE_MTc1MTk0NTg3MS4xLjEuMTc1MTk0NTg3MS4wLjAuMA.-1.mp4
-2025-07-08 09:39:41,555 - __main__ - INFO - FFmpeg stdout: 
-2025-07-08 09:39:41,556 - __main__ - INFO - FFmpeg stderr: ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
-  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
-  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
-  libavutil      56. 70.100 / 56. 70.100
-  libavcodec     58.134.100 / 58.134.100
-  libavformat    58. 76.100 / 58. 76.100
-  libavdevice    58. 13.100 / 58. 13.100
-  libavfilter     7.110.100 /  7.110.100
-  libswscale      5.  9.100 /  5.  9.100
-  libswresample   3.  9.100 /  3.  9.100
-  libpostproc    55.  9.100 / 55.  9.100
-Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'downloads/f1585393-2312-48cf-8fe7-a3c62596cd68_great-cumshots-113-4895447_gl=1_i3fqr8__ga_cGxUank2TTBpaFZONjctcmFjRUthZVI5SUdQOUsxTnYwWXU4b1h3RkVqSHZQLXBBT1kybVJMY1ZFMng3dDVrdg..__ga_M59JX8S6QE_MTc1MTk0NTg3MS4xLjEuMTc1MTk0NTg3MS4wLjAuMA.-1.mp4':
-  Metadata:
-    major_brand     : isom
-    minor_version   : 512
-    compatible_brands: isomiso2avc1mp41
-    encoder         : Lavf60.3.100
-  Duration: 00:21:51.92, start: 0.000000, bitrate: 631 kb/s
-  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 640x480 [SAR 1:1 DAR 4:3], 561 kb/s, 25 fps, 25 tbr, 12800 tbn, 50 tbc (default)
-    Metadata:
-      handler_name    : VideoHandler
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc60.3.100 libx264
-  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 63 kb/s (default)
-    Metadata:
-      handler_name    : SoundHandler
-      vendor_id       : [0][0][0][0]
-Stream mapping:
-  Stream #0:0 -> #0:0 (h264 (native) -> h264 (libx264))
-  Stream #0:1 -> #0:1 (aac (native) -> aac (native))
-Press [q] to stop, [?] for help
-[libx264 @ 0x5a243af60880] using SAR=1/1
-[libx264 @ 0x5a243af60880] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
-[libx264 @ 0x5a243af60880] profile High, level 3.0, 4:2:0, 8-bit
-[libx264 @ 0x5a243af60880] 264 - core 163 r3060 5db6aa6 - H.264/MPEG-4 AVC codec - Copyleft 2003-2021 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=15 lookahead_threads=2 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=28.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 vbv_maxrate=1000 vbv_bufsize=2000 crf_max=0.0 nal_hrd=none filler=0 ip_ratio=1.40 aq=1:1.00
-Output #0, mp4, to 'downloads/f1585393-2312-48cf-8fe7-a3c62596cd68_great-cumshots-113-4895447_gl=1_i3fqr8__ga_cGxUank2TTBpaFZONjctcmFjRUthZVI5SUdQOUsxTnYwWXU4b1h3RkVqSHZQLXBBT1kybVJMY1ZFMng3dDVrdg..__ga_M59JX8S6QE_MTc1MTk0NTg3MS4xLjEuMTc1MTk0NTg3MS4wLjAuMA.-1_telegram.mp4':
-  Metadata:
-    major_brand     : isom
-    minor_version   : 512
-    compatible_brands: isomiso2avc1mp41
-    encoder         : Lavf58.76.100
-  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(progressive), 640x480 [SAR 1:1 DAR 4:3], q=2-31, 25 fps, 12800 tbn (default)
-    Metadata:
-      handler_name    : VideoHandler
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc58.134.100 libx264
-    Side data:
-      cpb: bitrate max/min/avg: 1000000/0/0 buffer size: 2000000 vbv_delay: N/A
-  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 64 kb/s (default)
-    Metadata:
-      handler_name    : SoundHandler
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc58.134.100 aac
-frame=    1 fps=0.0 q=0.0 size=       0kB time=00:00:00.53 bitrate=   0.7kbits/s speed=54.3x    frame=  383 fps=0.0 q=33.0 size=     768kB time=00:00:15.83 bitrate= 397.3kbits/s speed=  31x    frame=  788 fps=780 q=33.0 size=    1792kB time=00:00:32.04 bitrate= 458.1kbits/s speed=31.7x    frame= 1207 fps=799 q=33.0 size=    2560kB time=00:00:48.80 bitrate= 429.7kbits/s speed=32.3x    frame= 1581 fps=786 q=33.0 size=    3584kB time=00:01:03.73 bitrate= 460.6kbits/s speed=31.7x    frame= 1971 fps=785 q=33.0 size=    4352kB time=00:01:19.34 bitrate= 449.3kbits/s speed=31.6x    frame= 2379 fps=789 q=33.0 size=    5632kB time=00:01:35.69 bitrate= 482.1kbits/s speed=31.7x    frame= 2794 fps=795 q=33.0 size=    6656kB time=00:01:52.27 bitrate= 485.6kbits/s speed=31.9x    frame= 3201 fps=797 q=33.0 size=    7680kB time=00:02:08.56 bitrate= 489.4kbits/s speed=  32x    frame= 3598 fps=797 q=33.0 size=    8704kB time=00:02:24.46 bitrate= 493.6kbits/s speed=  32x    frame= 4007 fps=799 q=33.0 size=    9984kB time=00:02:40.81 bitrate= 508.6kbits/s speed=  32x    frame= 4414 fps=800 q=33.0 size=   11008kB time=00:02:57.09 bitrate= 509.2kbits/s speed=32.1x    frame= 4805 fps=798 q=33.0 size=   11776kB time=00:03:12.74 bitrate= 500.5kbits/s speed=  32x    frame= 5213 fps=800 q=33.0 size=   12800kB time=00:03:29.05 bitrate= 501.6kbits/s speed=32.1x    frame= 5597 fps=797 q=33.0 size=   13824kB time=00:03:44.40 bitrate= 504.7kbits/s speed=  32x    frame= 5977 fps=795 q=33.0 size=   14848kB time=00:03:59.61 bitrate= 507.6kbits/s speed=31.9x    frame= 6395 fps=797 q=33.0 size=   15872kB time=00:04:16.34 bitrate= 507.2kbits/s speed=  32x    frame= 6824 fps=801 q=33.0 size=   16896kB time=00:04:33.47 bitrate= 506.1kbits/s speed=32.1x    frame= 7253 fps=804 q=33.0 size=   17664kB time=00:04:50.65 bitrate= 497.8kbits/s speed=32.2x    frame= 7671 fps=806 q=33.0 size=   18688kB time=00:05:07.36 bitrate= 498.1kbits/s speed=32.3x    frame= 8090 fps=807 q=33.0 size=   19456kB time=00:05:24.13 bitrate= 491.7kbits/s speed=32.3x    frame= 8534 fps=811 q=33.0 size=   20480kB time=00:05:41.89 bitrate= 490.7kbits/s speed=32.5x    frame= 8952 fps=812 q=33.0 size=   21248kB time=00:05:58.58 bitrate= 485.4kbits/s speed=32.5x    frame= 9350 fps=811 q=33.0 size=   22272kB time=00:06:14.51 bitrate= 487.2kbits/s speed=32.5x    frame= 9768 fps=812 q=33.0 size=   23296kB time=00:06:31.23 bitrate= 487.8kbits/s speed=32.5x    frame=10236 fps=817 q=33.0 size=   24064kB time=00:06:49.96 bitrate= 480.9kbits/s speed=32.7x    frame=10690 fps=821 q=33.0 size=   25088kB time=00:07:08.13 bitrate= 480.0kbits/s speed=32.9x    frame=11140 fps=824 q=33.0 size=   25856kB time=00:07:26.13 bitrate= 474.8kbits/s speed=  33x    frame=11618 fps=828 q=33.0 size=   26624kB time=00:07:45.25 bitrate= 468.8kbits/s speed=33.2x    frame=12064 fps=831 q=33.0 size=   27392kB time=00:08:03.06 bitrate= 464.5kbits/s speed=33.3x    frame=12488 fps=831 q=33.0 size=   28416kB time=00:08:20.04 bitrate= 465.5kbits/s speed=33.3x    frame=12910 fps=831 q=33.0 size=   29440kB time=00:08:36.89 bitrate= 466.6kbits/s speed=33.3x    frame=13354 fps=833 q=33.0 size=   30208kB time=00:08:54.66 bitrate= 462.8kbits/s speed=33.4x    frame=13829 fps=837 q=33.0 size=   31232kB time=00:09:13.69 bitrate= 462.1kbits/s speed=33.5x    frame=14223 fps=835 q=33.0 size=   32000kB time=00:09:29.43 bitrate= 460.4kbits/s speed=33.4x    frame=14613 fps=834 q=33.0 size=   33024kB time=00:09:45.04 bitrate= 462.4kbits/s speed=33.4x    frame=15005 fps=832 q=33.0 size=   34048kB time=00:10:00.71 bitrate= 464.3kbits/s speed=33.3x    frame=15413 fps=832 q=33.0 size=   35072kB time=00:10:17.05 bitrate= 465.6kbits/s speed=33.3x    frame=15834 fps=832 q=33.0 size=   36096kB time=00:10:33.88 bitrate= 466.5kbits/s speed=33.3x    frame=16249 fps=832 q=33.0 size=   36864kB time=00:10:50.49 bitrate= 464.2kbits/s speed=33.3x    frame=16650 fps=831 q=33.0 size=   37888kB time=00:11:06.53 bitrate= 465.7kbits/s speed=33.3x    frame=17080 fps=832 q=33.0 size=   38656kB time=00:11:23.71 bitrate= 463.2kbits/s speed=33.3x    frame=17477 fps=831 q=33.0 size=   39680kB time=00:11:39.61 bitrate= 464.6kbits/s speed=33.3x    frame=17872 fps=830 q=33.0 size=   40704kB time=00:11:55.40 bitrate= 466.1kbits/s speed=33.2x    frame=18278 fps=830 q=33.0 size=   41728kB time=00:12:11.61 bitrate= 467.2kbits/s speed=33.2x    frame=18705 fps=830 q=33.0 size=   42496kB time=00:12:28.72 bitrate= 465.0kbits/s speed=33.2x    frame=19129 fps=830 q=33.0 size=   43520kB time=00:12:45.67 bitrate= 465.6kbits/s speed=33.2x    frame=19571 fps=832 q=33.0 size=   44288kB time=00:13:03.39 bitrate= 463.1kbits/s speed=33.3x    frame=20003 fps=832 q=33.0 size=   45312kB time=00:13:20.64 bitrate= 463.6kbits/s speed=33.3x    frame=20380 fps=831 q=33.0 size=   46336kB time=00:13:35.71 bitrate= 465.3kbits/s speed=33.2x    frame=20768 fps=829 q=33.0 size=   47616kB time=00:13:51.25 bitrate= 469.3kbits/s speed=33.2x    frame=21146 fps=828 q=33.0 size=   48384kB time=00:14:06.36 bitrate= 468.3kbits/s speed=33.1x    frame=21540 fps=827 q=33.0 size=   49408kB time=00:14:22.12 bitrate= 469.5kbits/s speed=33.1x    frame=21940 fps=827 q=33.0 size=   50176kB time=00:14:38.09 bitrate= 468.1kbits/s speed=33.1x    frame=22338 fps=826 q=33.0 size=   51200kB time=00:14:54.04 bitrate= 469.1kbits/s speed=33.1x    frame=22751 fps=826 q=33.0 size=   51968kB time=00:15:10.57 bitrate= 467.5kbits/s speed=33.1x    frame=23236 fps=829 q=33.0 size=   52992kB time=00:15:29.96 bitrate= 466.8kbits/s speed=33.2x    frame=23730 fps=831 q=33.0 size=   53760kB time=00:15:49.72 bitrate= 463.7kbits/s speed=33.3x    frame=24153 fps=832 q=33.0 size=   54528kB time=00:16:06.64 bitrate= 462.1kbits/s speed=33.3x    frame=24560 fps=831 q=33.0 size=   55296kB time=00:16:22.92 bitrate= 460.9kbits/s speed=33.3x    frame=25003 fps=832 q=33.0 size=   56064kB time=00:16:40.64 bitrate= 459.0kbits/s speed=33.3x    frame=25419 fps=832 q=33.0 size=   57088kB time=00:16:57.29 bitrate= 459.7kbits/s speed=33.3x    frame=25813 fps=831 q=33.0 size=   58112kB time=00:17:13.03 bitrate= 460.8kbits/s speed=33.3x    frame=26236 fps=832 q=33.0 size=   59136kB time=00:17:29.98 bitrate= 461.4kbits/s speed=33.3x    frame=26683 fps=832 q=33.0 size=   59904kB time=00:17:47.84 bitrate= 459.6kbits/s speed=33.3x    frame=27096 fps=832 q=33.0 size=   60928kB time=00:18:04.36 bitrate= 460.3kbits/s speed=33.3x    frame=27530 fps=833 q=33.0 size=   61696kB time=00:18:21.72 bitrate= 458.7kbits/s speed=33.3x    frame=27940 fps=833 q=33.0 size=   62720kB time=00:18:38.14 bitrate= 459.5kbits/s speed=33.3x    frame=28358 fps=833 q=33.0 size=   63488kB time=00:18:54.84 bitrate= 458.3kbits/s speed=33.3x    frame=28795 fps=833 q=33.0 size=   64512kB time=00:19:12.33 bitrate= 458.6kbits/s speed=33.3x    frame=29202 fps=833 q=33.0 size=   65280kB time=00:19:28.60 bitrate= 457.6kbits/s speed=33.3x    frame=29616 fps=833 q=33.0 size=   66304kB time=00:19:45.15 bitrate= 458.3kbits/s speed=33.3x    frame=30038 fps=833 q=33.0 size=   67072kB time=00:20:02.03 bitrate= 457.1kbits/s speed=33.3x    frame=30436 fps=833 q=33.0 size=   68096kB time=00:20:17.98 bitrate= 458.0kbits/s speed=33.3x    frame=30838 fps=832 q=33.0 size=   69120kB time=00:20:34.02 bitrate= 458.8kbits/s speed=33.3x    frame=31243 fps=832 q=33.0 size=   70144kB time=00:20:50.21 bitrate= 459.6kbits/s speed=33.3x    frame=31713 fps=833 q=33.0 size=   70912kB time=00:21:09.04 bitrate= 457.8kbits/s speed=33.3x    frame=32147 fps=834 q=33.0 size=   71680kB time=00:21:26.39 bitrate= 456.5kbits/s speed=33.4x    frame=32583 fps=834 q=33.0 size=   72704kB time=00:21:43.83 bitrate= 456.8kbits/s speed=33.4x    [mp4 @ 0x5a243af5fe40] Starting second pass: moving the moov atom to the beginning of the file
-frame=32798 fps=833 q=-1.0 Lsize=   74263kB time=00:21:51.82 bitrate= 463.7kbits/s speed=33.3x    
-video:62959kB audio:10315kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.348943%
-[libx264 @ 0x5a243af60880] frame I:188   Avg QP:25.23  size:  7718
-[libx264 @ 0x5a243af60880] frame P:18294 Avg QP:28.15  size:  2478
-[libx264 @ 0x5a243af60880] frame B:14316 Avg QP:30.48  size:  1235
-[libx264 @ 0x5a243af60880] consecutive B-frames: 33.5% 13.8% 33.2% 19.5%
-[libx264 @ 0x5a243af60880] mb I  I16..4: 23.2% 71.6%  5.2%
-[libx264 @ 0x5a243af60880] mb P  I16..4:  4.8%  7.9%  0.2%  P16..4: 49.4%  5.8%  1.4%  0.0%  0.0%    skip:30.6%
-[libx264 @ 0x5a243af60880] mb B  I16..4:  2.3%  4.4%  0.1%  B16..8: 31.7%  2.6%  0.0%  direct: 5.6%  skip:53.4%  L0:54.3% L1:43.5% BI: 2.3%
-[libx264 @ 0x5a243af60880] 8x8 transform intra:62.7% inter:91.7%
-[libx264 @ 0x5a243af60880] coded y,uvDC,uvAC intra: 27.2% 44.2% 1.9% inter: 6.1% 11.6% 0.0%
-[libx264 @ 0x5a243af60880] i16 v,h,dc,p: 29% 24% 10% 38%
-[libx264 @ 0x5a243af60880] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 23% 17% 21%  5%  8%  8%  7%  6%  5%
-[libx264 @ 0x5a243af60880] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 26% 16% 15%  5% 12%  9%  8%  6%  3%
-[libx264 @ 0x5a243af60880] i8c dc,h,v,p: 60% 16% 19%  5%
-[libx264 @ 0x5a243af60880] Weighted P-Frames: Y:0.2% UV:0.1%
-[libx264 @ 0x5a243af60880] ref P L0: 81.4% 18.6%
-[libx264 @ 0x5a243af60880] ref B L0: 87.0% 13.0%
-[libx264 @ 0x5a243af60880] ref B L1: 98.4%  1.6%
-[libx264 @ 0x5a243af60880] kb/s:393.13
-[aac @ 0x5a243b01e3c0] Qavg: 194.328
-
-2025-07-08 09:39:41,556 - __main__ - INFO - File: downloads/f1585393-2312-48cf-8fe7-a3c62596cd68_great-cumshots-113-4895447_gl=1_i3fqr8__ga_cGxUank2TTBpaFZONjctcmFjRUthZVI5SUdQOUsxTnYwWXU4b1h3RkVqSHZQLXBBT1kybVJMY1ZFMng3dDVrdg..__ga_M59JX8S6QE_MTc1MTk0NTg3MS4xLjEuMTc1MTk0NTg3MS4wLjAuMA.-1_telegram.mp4, Size: 76044906 bytes (72.52 MB)
-2025-07-08 09:39:41,556 - __main__ - INFO - Checking file size: 72.52 MB vs limit 2000 MB and local save limit 50 MB
-2025-07-08 09:51:08,174 - __main__ - INFO - Received message text: https://xhwide5.com/videos/compilation-5-exclusive-videos-from-our-onlyfans-xhRZ1tE
-2025-07-08 09:51:08,174 - __main__ - INFO - Detected URL: https://xhwide5.com/videos/compilation-5-exclusive-videos-from-our-onlyfans-xhRZ1tE
-2025-07-08 09:51:08,956 - __main__ - INFO - yt-dlp attempting to extract info for URL: https://xhwide5.com/videos/compilation-5-exclusive-videos-from-our-onlyfans-xhRZ1tE
-2025-07-08 09:51:10,096 - __main__ - WARNING - [generic] Falling back on generic information extractor
-2025-07-08 09:54:57,127 - __main__ - INFO - yt-dlp prepared filename: downloads/20ad093c-0dfa-4852-9eff-3b8a1edce056_compilation-5-exclusive-videos-from-our-onlyfans-xhRZ1tE-1.mp4
-2025-07-08 09:55:52,340 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:55:52,341 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
-Traceback (most recent call last):
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 715, in _network_loop_retry
-    if not await action_cb():
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
-    raise exc
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
-    updates = await self.bot.get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 618, in get_updates
-    updates = await super().get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 542, in decorator
-    result = await func(self, *args, **kwargs)
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 4164, in get_updates
-    await self._post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 630, in _post
-    return await self._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 347, in _do_post
-    return await super()._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 658, in _do_post
-    return await request.post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 200, in post
-    result = await self._request_wrapper(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
-    raise Conflict(message)
-telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:55:57,733 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:55:57,733 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
-Traceback (most recent call last):
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 715, in _network_loop_retry
-    if not await action_cb():
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
-    raise exc
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
-    updates = await self.bot.get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 618, in get_updates
-    updates = await super().get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 542, in decorator
-    result = await func(self, *args, **kwargs)
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 4164, in get_updates
-    await self._post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 630, in _post
-    return await self._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 347, in _do_post
-    return await super()._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 658, in _do_post
-    return await request.post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 200, in post
-    result = await self._request_wrapper(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
-    raise Conflict(message)
-telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:56:04,135 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:56:04,135 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
-Traceback (most recent call last):
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 715, in _network_loop_retry
-    if not await action_cb():
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
-    raise exc
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
-    updates = await self.bot.get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 618, in get_updates
-    updates = await super().get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 542, in decorator
-    result = await func(self, *args, **kwargs)
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 4164, in get_updates
-    await self._post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 630, in _post
-    return await self._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 347, in _do_post
-    return await super()._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 658, in _do_post
-    return await request.post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 200, in post
-    result = await self._request_wrapper(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
-    raise Conflict(message)
-telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:56:12,038 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:56:12,039 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
-Traceback (most recent call last):
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 715, in _network_loop_retry
-    if not await action_cb():
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
-    raise exc
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
-    updates = await self.bot.get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 618, in get_updates
-    updates = await super().get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 542, in decorator
-    result = await func(self, *args, **kwargs)
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 4164, in get_updates
-    await self._post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 630, in _post
-    return await self._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 347, in _do_post
-    return await super()._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 658, in _do_post
-    return await request.post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 200, in post
-    result = await self._request_wrapper(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
-    raise Conflict(message)
-telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:56:19,203 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:56:19,203 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
-Traceback (most recent call last):
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 715, in _network_loop_retry
-    if not await action_cb():
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
-    raise exc
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
-    updates = await self.bot.get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 618, in get_updates
-    updates = await super().get_updates(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 542, in decorator
-    result = await func(self, *args, **kwargs)
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 4164, in get_updates
-    await self._post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 630, in _post
-    return await self._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 347, in _do_post
-    return await super()._do_post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/_bot.py", line 658, in _do_post
-    return await request.post(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 200, in post
-    result = await self._request_wrapper(
-  File "/home/abidhasan2025/.local/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
-    raise Conflict(message)
-telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2025-07-08 09:57:09,309 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
