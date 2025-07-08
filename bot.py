@@ -37,15 +37,42 @@ def _blocking_download_video(url: str) -> tuple[str, int]:
     """Synchronously downloads a video using yt-dlp and returns its path and size."""
     ydl_opts = {
         'format': 'bestvideo+bestaudio/best',
-        'outtmpl': os.path.join(DOWNLOAD_DIR, '%(title)s.%(ext)s'),
+        'outtmpl': os.path.join(DOWNLOAD_DIR, f'{uuid.uuid4()}_%(id)s.%(ext)s'),
         'noplaylist': True,
         'restrictfilenames': True,
         'socket_timeout': 60,  # Set timeout to 60 seconds
         'no_warnings': True,   # Suppress warnings
+        'ignoreerrors': False, # Do not ignore errors, raise them
+        'allow_unplayable_formats': False, # Do not allow unplayable formats by default
+        'geo_bypass': True, # Bypass geographic restrictions
+        'no_check_certificate': True, # Do not verify SSL certificates
+        'verbose': True, # Enable verbose output for debugging
+        'log_warnings': True, # Log warnings
+        'logger': logger, # Use our logger for yt-dlp messages
+        'prefer_https': False, # Prefer HTTP over HTTPS
+        'force_ipv4': True, # Force IPv4
+        'sleep_interval_requests': 1, # Sleep for 1 second between requests
+        'max_sleep_interval': 5, # Max sleep for 5 seconds between requests
+        'no_cache_dir': True, # Disable the cache directory
     }
+    logger.info(f"yt-dlp attempting to extract info for URL: {url}")
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
+        if info is None:
+            raise ValueError("yt-dlp failed to extract video information.")
         filepath = ydl.prepare_filename(info)
+        logger.info(f"yt-dlp prepared filename: {filepath}")
+        # Verify the file actually exists before getting its size
+        if not os.path.exists(filepath):
+            # If the file doesn't exist, it might be due to a redirect or a different final name
+            # We need to find the actual downloaded file. This is a common issue with yt-dlp.
+            # For now, let's try to get the actual filepath from the info dictionary if available.
+            if '_filepath' in info:
+                filepath = info['_filepath']
+                logger.info(f"Using _filepath from info dictionary: {filepath}")
+            else:
+                raise FileNotFoundError(f"Downloaded file not found at expected path: {filepath}")
+
         file_size = os.path.getsize(filepath)
         return filepath, file_size
 
@@ -145,6 +172,8 @@ async def handle_url_message(update: Update, context: ContextTypes.DEFAULT_TYPE)
             else:
                 # Store filepath in bot_data and create unique IDs for callback_data
                 file_id = str(uuid.uuid4())
+                logger.info(f"Generated file_id: {file_id}")
+                logger.info(f"Storing reencoded_filepath in bot_data: {reencoded_filepath}")
                 context.bot_data[file_id] = reencoded_filepath
 
                 # Create inline keyboard for conversion options
@@ -155,10 +184,13 @@ async def handle_url_message(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 reply_markup = InlineKeyboardMarkup(keyboard)
 
                 logger.info(f"Attempting to send document: {reencoded_filepath}")
+                logger.info(f"Filename for upload: {os.path.basename(reencoded_filepath)}")
                 try:
                     with open(reencoded_filepath, 'rb') as f:
-                        await update.message.reply_document(document=InputFile(f, filename=os.path.basename(reencoded_filepath)), reply_markup=reply_markup, read_timeout=600, write_timeout=600)
-                    logger.info(f"Document sent successfully: {reencoded_filepath}")
+                        # Append a unique query parameter to the filename to bypass Telegram's caching
+                        unique_filename = f"{os.path.basename(reencoded_filepath)}?v={uuid.uuid4()}"
+                        await update.message.reply_video(video=InputFile(f, filename=unique_filename), reply_markup=reply_markup, read_timeout=600, write_timeout=600)
+                    logger.info(f"Document sent successfully with unique filename: {unique_filename}")
                     await update.message.reply_text("Download complete and file sent! Choose a conversion option or ignore.")
                 except Exception as upload_e:
                     logger.error(f"Error uploading document {reencoded_filepath}: {upload_e}")
