@@ -288,7 +288,11 @@ async def convert_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 
     if not original_filepath_from_botdata or not os.path.exists(original_filepath_from_botdata):
         logger.error(f"Original file not found or path invalid for file_id: {file_id}. Path: {original_filepath_from_botdata}")
-        await query.edit_message_text("Original file not found. It might have been removed or the request is old. Please try downloading again.")
+        try:
+            await query.message.edit_caption(caption="Original file not found. It might have been removed or the request is old. Please try downloading again.", reply_markup=query.message.reply_markup)
+        except Exception as e_edit:
+            logger.error(f"Error trying to edit caption for file not found: {e_edit}")
+            await query.edit_message_text("Original file not found. It might have been removed or the request is old. Please try downloading again.") # Fallback if caption edit fails
         return
 
     temp_source_for_conversion = "" # Path to the temporary copy for this specific conversion
@@ -301,8 +305,8 @@ async def convert_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         shutil.copy(original_filepath_from_botdata, temp_source_for_conversion)
         logger.info(f"Created temporary copy for conversion: {temp_source_for_conversion} from {original_filepath_from_botdata}")
 
-        await query.edit_message_text(f"Converting {os.path.basename(original_filepath_from_botdata)} to {action.upper()}...")
-        logger.info(f"Message edited to 'Converting...'")
+        await query.message.edit_caption(caption=f"⏳ Converting {os.path.basename(original_filepath_from_botdata)} to {action.upper()}...", reply_markup=query.message.reply_markup)
+        logger.info(f"Caption edited to 'Converting...'")
 
         logger.info(f"Starting blocking conversion for {temp_source_for_conversion} to {action}")
         converted_filepath, converted_file_size = await asyncio.get_running_loop().run_in_executor(
@@ -314,37 +318,37 @@ async def convert_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 
         if converted_file_size_mb > LOCAL_SAVE_LIMIT_MB:
             # Note: If saved locally, converted_filepath is not cleaned up here, user is given the path.
-            await query.edit_message_text(
-                f"Converted file size ({converted_file_size_mb:.2f} MB) exceeds upload limit. "
-                f"File saved to local storage: {converted_filepath}"
+            caption_text = (
+                f"⚠️ Converted file size ({converted_file_size_mb:.2f} MB) exceeds upload limit.\n"
+                f"File saved to local storage: {os.path.basename(converted_filepath)}"
             )
+            await query.message.edit_caption(caption=caption_text, reply_markup=query.message.reply_markup)
             logger.info(f"Converted file saved locally: {converted_filepath}")
             # No further cleanup of converted_filepath in this branch as it's meant to be kept.
         else:
             logger.info(f"Attempting to send converted document: {converted_filepath}")
             try:
-                with open(converted_filepath, 'rb') as f:
-                    await query.message.reply_document(document=InputFile(f, filename=os.path.basename(converted_filepath)))
+                await query.message.reply_document(document=InputFile(open(converted_filepath, 'rb'), filename=os.path.basename(converted_filepath)))
                 logger.info(f"Converted document sent successfully: {converted_filepath}")
-                await query.edit_message_text("Conversion complete and file sent!")
+                await query.message.edit_caption(caption=f"✅ Conversion to {action.upper()} complete! New file sent.", reply_markup=query.message.reply_markup)
             except Exception as upload_e:
                 logger.error(f"Error uploading converted document {converted_filepath}: {upload_e}")
-                await query.edit_message_text(f"Failed to upload converted file. Error: {upload_e}")
+                await query.message.edit_caption(caption=f"❌ Failed to upload converted file. Error: {upload_e}", reply_markup=query.message.reply_markup)
             finally:
                 # Clean up the successfully sent or failed-to-upload converted file
                 if os.path.exists(converted_filepath):
                     os.remove(converted_filepath)
                     logger.info(f"Cleaned up converted file after processing: {converted_filepath}")
 
-    except FileNotFoundError as fnf_e: # Specifically catch if the temp_source_for_conversion or original_filepath_from_botdata is missing during the process
+    except FileNotFoundError as fnf_e:
         logger.error(f"File not found during conversion process: {fnf_e}")
-        await query.edit_message_text(f"Error during conversion: File not found. {fnf_e}")
+        await query.message.edit_caption(caption=f"❌ Error during conversion: File not found. {fnf_e}", reply_markup=query.message.reply_markup)
     except subprocess.CalledProcessError as e:
-        logger.error(f"FFmpeg error: {e.stderr.decode()}")
-        await query.edit_message_text(f"Conversion failed: FFmpeg error.") # Don't send full stderr to user
+        logger.error(f"FFmpeg error: {e.stderr.decode()}") # Log full error for server admin
+        await query.message.edit_caption(caption=f"❌ Conversion failed: FFmpeg error. Please check logs.", reply_markup=query.message.reply_markup)
     except Exception as e:
         logger.error(f"An unexpected error occurred during conversion: {e}", exc_info=True)
-        await query.edit_message_text(f"An unexpected error occurred during conversion.")
+        await query.message.edit_caption(caption=f"❌ An unexpected error occurred during conversion.", reply_markup=query.message.reply_markup)
     finally:
         # Clean up the temporary source copy used for this specific conversion
         if temp_source_for_conversion and os.path.exists(temp_source_for_conversion):
