@@ -1,3 +1,4 @@
+print(">>>> SCRIPT EXECUTION STARTED <<<<") # Prominent marker
 import logging
 import os
 import yt_dlp # type: ignore
@@ -375,8 +376,30 @@ def download_progress_hook(d, update: Update):
 
 def main() -> None:
     """Start the bot."""
-    # Create download directory if it doesn't exist
-    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+    logger.info(">>>> MAIN FUNCTION STARTED <<<<") # Prominent marker
+    logger.info(f"Current working directory: {os.getcwd()}")
+    download_dir_absolute_path = os.path.abspath(DOWNLOAD_DIR)
+    logger.info(f"Download directory target (relative): {DOWNLOAD_DIR}")
+    logger.info(f"Attempting to ensure download directory exists at absolute path: {download_dir_absolute_path}")
+
+    try:
+        os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+        logger.info(f"os.makedirs call for '{DOWNLOAD_DIR}' completed.")
+        # Verify creation
+        if os.path.exists(DOWNLOAD_DIR) and os.path.isdir(DOWNLOAD_DIR):
+            logger.info(f"SUCCESS: Directory '{DOWNLOAD_DIR}' exists at '{download_dir_absolute_path}'.")
+            try:
+                # Attempt to list the directory contents as a further check
+                logger.info(f"Contents of '{DOWNLOAD_DIR}': {os.listdir(DOWNLOAD_DIR)}")
+            except Exception as e_list:
+                logger.warning(f"Could not list contents of '{DOWNLOAD_DIR}', but it exists. Error: {e_list}")
+        else:
+            logger.error(f"FAILURE: Directory '{DOWNLOAD_DIR}' does NOT exist or is not a directory at '{download_dir_absolute_path}' after os.makedirs call.")
+    except Exception as e:
+        logger.error(f"CRITICAL FAILURE: Error during os.makedirs for '{DOWNLOAD_DIR}': {e}", exc_info=True)
+        # If directory creation fails, the bot might not function correctly.
+        # Depending on desired behavior, you might want to exit or raise the exception.
+        # For now, we'll log and continue, but downloads will likely fail.
 
     application = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
 
