@@ -329,7 +329,11 @@ async def convert_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
                  await edit_target_message.edit_caption(caption=caption_text, reply_markup=edit_target_message.reply_markup)
             else:
                 await edit_target_message.edit_text(text=caption_text, reply_markup=edit_target_message.reply_markup)
-            await query.message.reply_document(document=InputFile(open(converted_filepath, 'rb'), filename=os.path.basename(converted_filepath)))
+            logger.info(f"Converted file saved locally: {converted_filepath}")
+        else:
+            logger.info(f"Attempting to send converted document: {converted_filepath}")
+            try:
+                await query.message.reply_document(document=InputFile(open(converted_filepath, 'rb'), filename=os.path.basename(converted_filepath)))
                 logger.info(f"Converted document sent successfully: {converted_filepath}")
                 success_message = f"✅ Conversion to {action.upper()} complete! New file sent."
                 if hasattr(edit_target_message, 'caption') and edit_target_message.caption is not None:
