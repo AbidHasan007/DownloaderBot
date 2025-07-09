@@ -111,8 +111,13 @@ def _blocking_download_video(url: str, update: Update, context: ContextTypes.DEF
         'max_sleep_interval': 5,
         'no_cache_dir': True,
         'progress_hooks': [progress_hook], # Add the progress hook
+        'cookies': 'cookies.txt', # Add this line to specify the cookies file
     }
-    logger.info(f"yt-dlp attempting to extract info for URL: {url} with progress hook.")
+    logger.info(f"yt-dlp attempting to extract info for URL: {url} with progress hook and cookies.")
+    # Check if cookies.txt exists, and log a warning if it doesn't
+    if not os.path.exists('cookies.txt'):
+        logger.warning("cookies.txt not found. Downloads requiring authentication may fail.")
+
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
         if info is None:
