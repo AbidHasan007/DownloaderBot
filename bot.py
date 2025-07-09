@@ -33,29 +33,85 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         f"Hi {user.mention_html()}! I'm your media downloader bot. Send me a link to download!",
     )
 
-def _blocking_download_video(url: str) -> tuple[str, int]:
-    """Synchronously downloads a video using yt-dlp and returns its path and size."""
+# Store last update time for progress messages to avoid spamming
+last_progress_update_time = {}
+
+def _blocking_download_video(url: str, update: Update, context: ContextTypes.DEFAULT_TYPE, message_id: int, main_loop: asyncio.AbstractEventLoop) -> tuple[str, int]:
+    """Synchronously downloads a video using yt-dlp and returns its path and size, updating progress."""
+    chat_id = update.effective_chat.id
+    last_progress_update_time[chat_id] = 0 # Initialize last update time for this chat
+
+    def progress_hook(d):
+        if d['status'] == 'downloading':
+            percentage = d.get('_percent_str', 'N/A')
+            try:
+                numeric_percentage = float(percentage.strip().replace('%',''))
+            except ValueError:
+                numeric_percentage = None
+
+            eta = d.get('_eta_str', 'N/A')
+            speed = d.get('_speed_str', 'N/A')
+            downloaded_bytes = d.get('downloaded_bytes', 0)
+            total_bytes = d.get('total_bytes') or d.get('total_bytes_estimate', 0)
+
+            current_time = main_loop.time() # Use main loop's time
+            if message_id and \
+               (current_time - last_progress_update_time.get(chat_id, 0) > 5 or
+                (numeric_percentage is not None and
+                 (numeric_percentage % 5 < 0.1 or numeric_percentage > 99.0))):
+
+                progress_message = f"Downloading: {percentage}\n"
+                progress_message += f"ETA: {eta}\n"
+                progress_message += f"Speed: {speed}\n"
+                progress_message += f"Downloaded: {yt_dlp.utils.format_bytes(downloaded_bytes)} / {yt_dlp.utils.format_bytes(total_bytes)}"
+
+                try:
+                    asyncio.run_coroutine_threadsafe(
+                        context.bot.edit_message_text(
+                            text=progress_message,
+                            chat_id=chat_id,
+                            message_id=message_id
+                        ),
+                        main_loop # Ensure coroutine runs on the main event loop
+                    )
+                    last_progress_update_time[chat_id] = current_time
+                except Exception as e:
+                    logger.warning(f"Failed to edit progress message: {e}")
+        elif d['status'] == 'finished':
+            try:
+                asyncio.run_coroutine_threadsafe(
+                    context.bot.edit_message_text(
+                        text="Download finished. Processing...",
+                        chat_id=chat_id,
+                        message_id=message_id
+                    ),
+                    main_loop # Ensure coroutine runs on the main event loop
+                )
+            except Exception as e:
+                logger.warning(f"Failed to edit 'Download finished' message: {e}")
+
     ydl_opts = {
         'format': 'bestvideo+bestaudio/best',
         'outtmpl': os.path.join(DOWNLOAD_DIR, f'{uuid.uuid4()}_%(id)s.%(ext)s'),
         'noplaylist': True,
         'restrictfilenames': True,
-        'socket_timeout': 60,  # Set timeout to 60 seconds
-        'no_warnings': True,   # Suppress warnings
-        'ignoreerrors': False, # Do not ignore errors, raise them
-        'allow_unplayable_formats': False, # Do not allow unplayable formats by default
-        'geo_bypass': True, # Bypass geographic restrictions
-        'no_check_certificate': True, # Do not verify SSL certificates
-        'verbose': True, # Enable verbose output for debugging
-        'log_warnings': True, # Log warnings
-        'logger': logger, # Use our logger for yt-dlp messages
-        'prefer_https': False, # Prefer HTTP over HTTPS
-        'force_ipv4': True, # Force IPv4
-        'sleep_interval_requests': 1, # Sleep for 1 second between requests
-        'max_sleep_interval': 5, # Max sleep for 5 seconds between requests
-        'no_cache_dir': True, # Disable the cache directory
+        'socket_timeout': 60,
+        'no_warnings': True,
+        'ignoreerrors': False,
+        'allow_unplayable_formats': False,
+        'geo_bypass': True,
+        'no_check_certificate': True,
+        'verbose': False, # Reduce verbosity, progress hook will handle updates
+        'log_warnings': True,
+        'logger': logger,
+        'prefer_https': False,
+        'force_ipv4': True,
+        'sleep_interval_requests': 1,
+        'max_sleep_interval': 5,
+        'no_cache_dir': True,
+        'progress_hooks': [progress_hook], # Add the progress hook
     }
-    logger.info(f"yt-dlp attempting to extract info for URL: {url}")
+    logger.info(f"yt-dlp attempting to extract info for URL: {url} with progress hook.")
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
         if info is None:
@@ -133,12 +189,15 @@ async def handle_url_message(update: Update, context: ContextTypes.DEFAULT_TYPE)
     if url_match:
         url = url_match.group(0)
         logger.info(f"Detected URL: {url}")
-        await update.message.reply_text(f"Attempting to download: {url}")
+        progress_message = await update.message.reply_text(f"Initializing download for: {url}")
+        progress_message_id = progress_message.message_id
 
         try:
-            # Run the blocking download in the executor
-            filepath, file_size = await asyncio.get_running_loop().run_in_executor(
-                executor, _blocking_download_video, url
+            # Get the current event loop to pass to the blocking function
+            main_loop = asyncio.get_running_loop()
+            # Run the blocking download in the executor, passing update, context, message_id, and main_loop
+            filepath, file_size = await main_loop.run_in_executor(
+                executor, _blocking_download_video, url, update, context, progress_message_id, main_loop
             )
 
             # Re-encode the video for Telegram compatibility
