@@ -24,7 +24,7 @@ DOWNLOAD_DIR = "downloads"
 TELEGRAM_FILE_LIMIT_MB = 2000
 LOCAL_SAVE_LIMIT_MB = 50
 
-executor = ThreadPoolExecutor(max_workers=1) # Temporarily reduced for diagnostics
+executor = ThreadPoolExecutor(max_workers=5) # Reverted to a more reasonable default
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user = update.effective_user
@@ -37,6 +37,7 @@ last_progress_update_time = {}
 def _blocking_download_video(url: str, update: Update, context: ContextTypes.DEFAULT_TYPE, message_id: int, main_loop: asyncio.AbstractEventLoop) -> tuple[str, int]:
     chat_id = update.effective_chat.id
     last_progress_update_time[chat_id] = 0
+    cookies_file_path = "/app/persistent_data/cookies.txt" # Path for Railway Volume
 
     def progress_hook(d):
         if d['status'] == 'downloading':
@@ -107,11 +108,13 @@ def _blocking_download_video(url: str, update: Update, context: ContextTypes.DEF
         'max_sleep_interval': 5,
         'no_cache_dir': True,
         'progress_hooks': [progress_hook],
-        'cookies': 'cookies.txt',
+        'cookies': cookies_file_path, # Use the defined path
     }
-    logger.info(f"yt-dlp attempting to extract info for URL: {url} with progress hook and cookies.")
-    if not os.path.exists('cookies.txt'):
-        logger.warning("cookies.txt not found. Downloads requiring authentication may fail.")
+    logger.info(f"yt-dlp attempting to extract info for URL: {url} with progress hook and cookies from {cookies_file_path}.")
+    if not os.path.exists(cookies_file_path):
+        logger.warning(f"{cookies_file_path} not found. Downloads requiring authentication may fail.")
+    else:
+        logger.info(f"{cookies_file_path} found. Size: {os.path.getsize(cookies_file_path)} bytes.")
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
@@ -298,7 +301,6 @@ async def convert_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
                 logger.error(f"Error uploading converted document {converted_filepath}: {upload_e}", exc_info=True)
                 final_text = f"❌ Failed to upload converted file. Error: {upload_e}"
         
-        # This block updates the original message after conversion attempt (success or failure to upload)
         if hasattr(edit_target_message, 'caption') and edit_target_message.caption is not None:
             await edit_target_message.edit_caption(caption=final_text, reply_markup=edit_target_message.reply_markup)
         else:
@@ -311,7 +313,6 @@ async def convert_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
             error_text = f"❌ Conversion failed: FFmpeg error. Details in logs."
         elif isinstance(e_conv, FileNotFoundError):
              error_text = f"❌ Error during conversion: A file was not found."
-        # else: use the generic error_text initialized above for other exceptions
         
         try:
             if hasattr(edit_target_message, 'caption') and edit_target_message.caption is not None:
@@ -322,7 +323,6 @@ async def convert_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
             logger.error(f"Failed to report conversion error to user: {e_report}")
     finally:
         if converted_filepath and os.path.exists(converted_filepath):
-            # Only delete if not saved locally due to size limit
             if not (converted_file_size_mb > LOCAL_SAVE_LIMIT_MB and final_text.startswith("⚠️")):
                  os.remove(converted_filepath)
                  logger.info(f"Cleaned up converted file: {converted_filepath}")
