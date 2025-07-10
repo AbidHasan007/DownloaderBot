@@ -8,8 +8,7 @@ WORKDIR /app
 # apt-get update updates the package list
 # apt-get install -y installs ffmpeg and git (if needed for yt-dlp)
 # rm -rf /var/lib/apt/lists/* cleans up apt cache to reduce image size
-RUN apt-get update &&     apt-get install -y ffmpeg git build-essential gcc python3-dev && 
-    rm -rf /var/lib/apt/lists/*
+    RUN apt-get update && apt-get install -y ffmpeg git build-essential gcc python3-dev && rm -rf /var/lib/apt/lists/*
 
 # Copy the current directory contents into the container at /app
 COPY . /app
