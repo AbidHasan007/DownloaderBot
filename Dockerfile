@@ -24,3 +24,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Using the Procfile entry point for Railway
 CMD ["python3", "bot.py"]
 
+ontainer launches
+# CMD ["python3", "bot.py"]
+# Using the Procfile entry point for Railway
+CMD ["python3", "bot.py"]
+
