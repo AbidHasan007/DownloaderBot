@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.10-slim-buster
+FROM python:3.10-slim-bullseye
 
 # Set the working directory in the container
 WORKDIR /app
@@ -20,6 +20,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # EXPOSE 80
 
 # Run bot.py when the container launches
+# CMD ["python3", "bot.py"]
+# Using the Procfile entry point for Railway
+CMD ["python3", "bot.py"]
+
+ontainer launches
 # CMD ["python3", "bot.py"]
 # Using the Procfile entry point for Railway
 CMD ["python3", "bot.py"]
