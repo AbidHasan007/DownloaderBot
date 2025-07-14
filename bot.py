@@ -158,13 +158,24 @@ def _blocking_reencode_video(original_filepath: str, resolution: str | None = No
     base, ext = os.path.splitext(original_filepath)
     reencoded_filepath = base + "_telegram.mp4"
     command = [
-        "ffmpeg", "-i", original_filepath, "-c:v", "libx264", "-preset", "fast",
+        "ffmpeg", "-i", original_filepath,
+        "-vf", "scale=1280:-1", # Downscale to 1280p width, keep aspect ratio
+        "-c:v", "libx264", "-preset", "fast",
         "-crf", "28", "-maxrate", "1000k", "-bufsize", "2000k", "-c:a", "aac",
         "-b:a", "64k", "-movflags", "faststart", "-y", reencoded_filepath
     ]
     if resolution:
-        command.insert(-1, "-vf")
-        command.insert(-1, f"scale={resolution}")
+        # This is a bit of a hack, but it works.
+        # The scale filter is already in the command, so we just need to replace the value.
+        try:
+            index_of_vf = command.index("-vf")
+            command[index_of_vf+1] = f"scale={resolution}"
+        except ValueError:
+            # If -vf is not in the command for some reason, add it.
+            command.insert(-1, "-vf")
+            command.insert(-1, f"scale={resolution}")
+
+
     result = subprocess.run(command, check=True, capture_output=True)
     logger.info(f"FFmpeg stdout: {result.stdout.decode()}")
     logger.info(f"FFmpeg stderr: {result.stderr.decode()}")
